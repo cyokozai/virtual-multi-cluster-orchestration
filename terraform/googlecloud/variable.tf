@@ -13,7 +13,7 @@ variable "fleet_project_id" {
 variable "cluster_project_id" {
   description = "クラスタを作成するプロジェクトID"
   type        = string
-  default     = "karmada-test"
+  default     = ""
 }
 
 variable "network_project_id" {
