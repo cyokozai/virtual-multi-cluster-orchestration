@@ -13,3 +13,13 @@
     ```shell
     terraform init -reconfigure -backend-config="<cloud provider>/.tfbackend"
     ```
+
+- Provisioning: Run `terraform plan/apply` with `-var-file` option. 
+
+    ```shell
+    terraform plan -var-file="<cloud provider>/.tfvars"
+    ```
+
+    ```shell
+    terraform apply -var-file="<cloud provider>/.tfvars"
+    ```
