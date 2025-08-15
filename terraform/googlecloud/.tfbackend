@@ -1,1 +1,1 @@
-path = "tfstate/develop/terraform.tfstate"
+path = "./tfstate/develop/terraform.tfstate"
