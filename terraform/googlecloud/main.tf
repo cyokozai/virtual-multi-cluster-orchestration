@@ -11,7 +11,7 @@ terraform {
 
 provider "google" {
   project = var.cluster_project_id
-  region  = var.region    # ゾーン用には別途定義する方法も可
+  region  = var.region
 }
 
 
@@ -25,19 +25,19 @@ resource "google_compute_subnetwork" "gke_subnet" {
   network = "projects/${var.network_project_id}/global/networks/${var.network_name}"
 
   # プライマリIPレンジ
-  ip_cidr_range = "10.10.0.0/24" # 例: 必要に応じて変更してください
+  ip_cidr_range = "10.0.0.0/24"
 
   # --enable-ip-alias に相当するセカンダリIPレンジ
   # Pod用のIPレンジ
   secondary_ip_range {
     range_name    = "${var.cluster_name}-pods"
-    ip_cidr_range = "10.20.0.0/16" # 例: 必要に応じて変更してください
+    ip_cidr_range = "10.0.0.0/16"
   }
 
   # Service用のIPレンジ
   secondary_ip_range {
     range_name    = "${var.cluster_name}-services"
-    ip_cidr_range = "10.30.0.0/20" # 例: 必要に応じて変更してください
+    ip_cidr_range = "10.0.0.0/20"
   }
 
   private_ip_google_access = true
@@ -78,7 +78,7 @@ resource "google_container_cluster" "primary" {
 
   # --fleet-project $FLEET_PROJECT_ID に相当
   fleet {
-    project = "projects/${var.fleet_project_id}"
+    project = "${var.fleet_project_id}"
   }
 }
 
