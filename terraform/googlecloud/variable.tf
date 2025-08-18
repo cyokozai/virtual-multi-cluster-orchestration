@@ -19,7 +19,7 @@ variable "cluster_project_id" {
 variable "network_project_id" {
   description = "使用する VPC ネットワークのプロジェクトID"
   type        = string
-  default     = "karmada-test"
+  default     = ""
 }
 
 variable "zone" {

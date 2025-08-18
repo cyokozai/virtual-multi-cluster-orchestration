@@ -45,11 +45,21 @@ Karmada は、このマルチクラスタ管理を実現するために、独自
   kubectl krew install karmada
   ```
 
-- インストール後は以下のコマンドで利用可能
+  - インストール後は以下のコマンドで利用可能
+
+    ```shell
+    kubectl karmada
+    ```
+  
+- クラスタへKarmadaをインストールする
 
   ```shell
-  kubectl karmada
+  kubectl karmada init
   ```
+
+### Helm を使用してインストールする
+
+- 以下のコマンドを実行する
 
 ## vCluster
 
@@ -179,7 +189,7 @@ vNode は Kubernetes の RuntimeClass として統合され、特に vCluster �
   ```
 
 - kubectl コマンドで作成したクラスタを確認する  
-今回はワーカノードを2つ作成する
+  今回はワーカノードを2つ作成する  
 
   ```shell
   $ kubectl get nodes

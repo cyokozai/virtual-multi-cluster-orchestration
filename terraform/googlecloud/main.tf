@@ -18,6 +18,14 @@ provider "google" {
 }
 
 
+resource "google_compute_network" "vpc_network" {
+  name                    = var.network_name
+  project                 = var.network_project_id
+  auto_create_subnetworks = false
+  routing_mode            = "REGIONAL"
+}
+
+
 resource "google_compute_subnetwork" "gke_subnet" {
   # サブネットが作成されるプロジェクトを指定
   project = var.network_project_id
@@ -25,7 +33,7 @@ resource "google_compute_subnetwork" "gke_subnet" {
   region  = var.region
 
   # --network=$NETWORK_PROJECT_ID に相当
-  network = "projects/${var.network_project_id}/global/networks/${var.network_name}"
+  network = google_compute_network.vpc_network.self_link
 
   # プライマリIPレンジ
   ip_cidr_range = "10.0.0.0/24"
@@ -34,13 +42,13 @@ resource "google_compute_subnetwork" "gke_subnet" {
   # Pod用のIPレンジ
   secondary_ip_range {
     range_name    = "${var.cluster_name}-pods"
-    ip_cidr_range = "10.0.0.0/16"
+    ip_cidr_range = "10.1.0.0/16"
   }
 
   # Service用のIPレンジ
   secondary_ip_range {
     range_name    = "${var.cluster_name}-services"
-    ip_cidr_range = "10.0.0.0/20"
+    ip_cidr_range = "10.2.0.0/20"
   }
 
   private_ip_google_access = true
