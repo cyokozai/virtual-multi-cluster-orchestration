@@ -54,8 +54,26 @@ Karmada は、このマルチクラスタ管理を実現するために、独自
 - クラスタへKarmadaをインストールする
 
   ```shell
-  karmadactl init --karmada-data $HOME/.karmada/data --karmada-pki $HOME/.karmada/pki
+  kubectl karmada init --karmada-data $HOME/.karmada/data --karmada-pki $HOME/.karmada/pki
   ```
+
+  - 結果
+  
+    ```shell
+    ```
+
+- `karmada-system` にデプロイされた `deployment` リソースを確認
+
+  ```shell
+  kubectl get deployments -n karmada-system
+  ```
+
+  - 結果
+  
+    ```shell
+    ```
+
+git clone https://github.com/karmada-io/karmada
 
 ### Helm を使用してインストールする
 
