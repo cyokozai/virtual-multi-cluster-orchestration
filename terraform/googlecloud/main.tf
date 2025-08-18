@@ -69,6 +69,7 @@ resource "google_container_cluster" "primary" {
   # 既存のノードを削除してから新しいノードを作成する設定
   # gcloudコマンドのデフォルトの挙動に合わせます
   remove_default_node_pool = true
+  deletion_protection = false
   initial_node_count       = 1
 
   # --network と --subnetwork に相当
