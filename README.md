@@ -5,9 +5,9 @@
 近年、複数の Kubernetes クラスタを運用するためのベストプラクティスが話題となり、それに伴う形で MCO (Multi-cluster Orchestrator) をはじめとしたマルチクラスタオーケストレーションツールが登場している。  
 代表的なツールとして以下のものがある。  
 
-  - [Karmada](https://karmada.io/)
-  - [kro](https://kro.run/)
-  - [GKE Multi-cluster Orchestrator](https://cloud.google.com/blog/products/containers-kubernetes/multi-cluster-orchestrator-for-cross-region-kubernetes-workloads?hl=en)
+  - [Karmada](https://karmada.io/)  
+  - [kro](https://kro.run/)  
+  - [GKE Multi-cluster Orchestrator](https://cloud.google.com/blog/products/containers-kubernetes/multi-cluster-orchestrator-for-cross-region-kubernetes-workloads?hl=en)  
 
 ## Karmada
 
@@ -121,7 +121,7 @@ vNode は Kubernetes の RuntimeClass として統合され、特に vCluster �
 | 項目 | vCluster | vCluster Platform | vNode |
 | :--- | :--- | :--- | :--- |
 | **役割** | 仮想Kubernetesクラスタの**作成・実行** | 複数のvClusterとユーザーの**一元管理** | 強力な分離を提供する**コンテナランタイム** |
-| **主な機能** | ・仮想コントロールプレーン\<br\>・複数のテナンシーモデル\<br\>・APIレベルの分離 | ・GUIによる統合管理\<br\>・RBAC、プロジェクト管理\<br\>・コスト削減 (スリープモード等) \<br\>・アプリカタログ | ・ユーザーネームスペースによる分離\<br\>・デフォルトでRootless実行\<br\>・特権コンテナの安全な実行 |
+| **主な機能** | 仮想コントロールプレーン・複数のテナンシーモデル・APIレベルの分離 | GUIによる統合管理・RBAC、プロジェクト管理・コスト削減 (スリープモード等) ・アプリカタログ | ユーザーネームスペースによる分離・デフォルトでRootless実行・特権コンテナの安全な実行 |
 | **動作レイヤー** | Kubernetesクラスタ内 (**仮想化レイヤー**)  | 管理・オーケストレーションレイヤー | ノード上 (**コンテナランタイムレイヤー**)  |
 | **提供形態** | オープンソース | 商用製品 | 商用製品 (要Platformライセンス)  |
 | **関係性** | Platformで管理され、vNodeをランタイムとして利用できる**基礎単位**。 | vClusterやvNodeを管理する**上位プラットフォーム**。 | vCluster内のワークロードを保護する**追加のセキュリティレイヤー**。 |
