@@ -22,6 +22,13 @@ variable "network_project_id" {
   default     = ""
 }
 
+variable "machine_type" {
+  description = "ノードのマシンタイプ"
+  type        = string
+  default     = "e2-standard-2"
+  
+}
+
 variable "zone" {
   description = "クラスタを作成するゾーン"
   type        = string

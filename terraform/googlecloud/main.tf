@@ -104,7 +104,7 @@ resource "google_container_node_pool" "primary_nodes" {
   node_config {
     # GKEが推奨するCos_containerdイメージタイプを使用
     image_type = "COS_CONTAINERD"
-    machine_type = "e2-medium" # 必要に応じて変更してください
+    machine_type = var.machine_type
 
     # ノードプールにもラベルを付与する場合
     labels = {
