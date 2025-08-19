@@ -70,7 +70,7 @@ resource "google_container_cluster" "primary" {
   # gcloudコマンドのデフォルトの挙動に合わせます
   remove_default_node_pool = true
   deletion_protection = false
-  initial_node_count       = 1
+  initial_node_count = 1
 
   # --network と --subnetwork に相当
   network    = google_compute_subnetwork.gke_subnet.network
@@ -100,7 +100,7 @@ resource "google_container_node_pool" "primary_nodes" {
   project    = var.cluster_project_id
   location   = var.zone
   cluster    = google_container_cluster.primary.name
-  node_count = 3 # --num-nodes 3 に相当
+  node_count = 3
 
   node_config {
     # GKEが推奨するCos_containerdイメージタイプを使用

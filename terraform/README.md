@@ -1,4 +1,4 @@
-# Terraform
+# Terraform GKE
 
 ## Run Terraform commands
 
@@ -14,12 +14,26 @@
     terraform init -reconfigure -backend-config=".tfbackend"
     ```
 
-- Provisioning: Run `terraform plan/apply` with `-var-file` option. 
+- Provisioning: Run `terraform plan/apply` with `-var-file` option.  
+    - Plan  
+
+        ```shell
+        terraform plan -var-file="terraform.tfvars"
+        ```
+
+    - Apply
+
+        ```shell
+        terraform apply -var-file="terraform.tfvars"
+        ```
+
+## Install Karmada control plane
+
+- Get Credentials  
+    `$LOCATION=asia-northeast1-a`  
 
     ```shell
-    terraform plan -var-file=".tfvars"
-    ```
-
-    ```shell
-    terraform apply -var-file=".tfvars"
+    gcloud container clusters get-credentials "$(gcloud container clusters list --format="value(name)" --region="$LOCATION" | head -n 1)" \
+      --region="$LOCATION" \
+      --project "$(gcloud config get-value project)"
     ```
