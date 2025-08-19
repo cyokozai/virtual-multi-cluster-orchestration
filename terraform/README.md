@@ -29,11 +29,16 @@
 
 ## Install Karmada control plane
 
-- Get Credentials  
-    `$LOCATION=asia-northeast1-a`  
+- Get Credentials    
 
     ```shell
     gcloud container clusters get-credentials "$(gcloud container clusters list --format="value(name)" --region="$LOCATION" | head -n 1)" \
-      --region="$LOCATION" \
+      --region="asia-northeast1-a" \
       --project "$(gcloud config get-value project)"
+    ```
+
+- Run init command
+
+    ```shell
+    kubectl karmada init --karmada-data $HOME/.karmada/data --karmada-pki $HOME/.karmada/pki 
     ```
