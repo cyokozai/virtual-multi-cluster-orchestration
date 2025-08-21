@@ -52,3 +52,15 @@ variable "network_name" {
   type        = string
   default     = "karmada-test"
 }
+
+variable "karmada_chart_version" {
+  description = "Karmada Helm Chart のバージョン"
+  type        = string
+  default     = null
+}
+
+variable "expose_karmada_apiserver" {
+  description = "Karmada API Server を外部に公開するか"
+  type        = bool
+  default     = true
+}
